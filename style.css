@@ -267,6 +267,9 @@ section#contact.portfolio-section {
 
 section#contact.portfolio-section h2 {
   text-align: center;
+  font-size: clamp(42px, 5vw, 72px);
+  letter-spacing: -2px;
+  margin-bottom: 28px;
 }
 
 section#contact.portfolio-section p {
@@ -275,6 +278,29 @@ section#contact.portfolio-section p {
   margin-right: auto;
   text-align: center;
 }
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.contact-links a {
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.contact-links a:hover {
+  color: #ffffff;
+}
+
+.contact-links span {
+  color: rgba(255,255,255,0.35);
+}
+
 
 /* Skills section */
 section#skills.portfolio-section {
