@@ -256,7 +256,7 @@ body {
   .work-section h1 {
     letter-spacing: -2px;
   }
-
+}
   /* Contact section */
 
 #contact {
@@ -274,4 +274,4 @@ body {
   margin-right: auto;
   text-align: center;
 }
-}
+
