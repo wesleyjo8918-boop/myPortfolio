@@ -303,23 +303,22 @@ section#contact.portfolio-section p {
 
 
 /* Skills section */
+
 section#skills.portfolio-section {
   min-height: 45vh;
-  padding: 70px 6vw;
-  text-align: center;
+  padding-top: 70px;
+  padding-right: 6vw;
   padding-bottom: 104px;
-}
-#skills {
+  padding-left: 6vw;
   text-align: right;
 }
 
-#skills h2 {
+section#skills.portfolio-section h2 {
   text-align: right;
 }
 
-#skills p {
+section#skills.portfolio-section p {
   margin-left: auto;
   margin-right: 0;
   text-align: right;
 }
-
