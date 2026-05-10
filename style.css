@@ -1,22 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f0f;
   color: #ffffff;
 }
 
-h1 {
-  font-size: 48px;
-  margin: 80px 40px 20px;
+.main-hero {
+  min-height: 100vh;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-p {
+.main-hero h1 {
+  margin: 0;
+  font-size: 64px;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  margin-top: 16px;
+  margin-bottom: 48px;
   font-size: 18px;
-  margin: 0 40px 40px;
-  color: #cccccc;
+  color: #bdbdbd;
 }
 
-h2 {
-  font-size: 32px;
-  margin: 60px 40px 20px;
+.portfolio-menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.portfolio-menu a {
+  width: 260px;
+  min-height: 120px;
+  padding: 32px 24px;
+  border: 1px solid #333333;
+  border-radius: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #181818;
+  transition: 0.25s ease;
+}
+
+.portfolio-menu a:hover {
+  background: #ffffff;
+  color: #111111;
+  transform: translateY(-6px);
+}
+
+.portfolio-section {
+  min-height: 80vh;
+  padding: 100px 40px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.portfolio-section h2 {
+  margin: 0 0 20px;
+  font-size: 42px;
+}
+
+.portfolio-section p {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+
+@media (max-width: 768px) {
+  .main-hero h1 {
+    font-size: 42px;
+  }
+
+  .portfolio-menu a {
+    width: 100%;
+  }
 }
