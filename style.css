@@ -254,7 +254,8 @@ body {
 }
 
 .work-card {
-  min-height: 220px;
+  position: relative;
+  min-height: 250px;
   padding: 0;
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 26px;
@@ -270,11 +271,18 @@ body {
 }
 
 .card-summary {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 30px;
+  position: relative;
+  min-height: 250px;
+  display: flex;
   align-items: center;
   padding: 34px;
+  z-index: 2;
+}
+
+.card-text {
+  position: relative;
+  z-index: 3;
+  width: 42%;
 }
 
 .card-text h2 {
@@ -292,11 +300,23 @@ body {
 }
 
 .card-cover {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
   overflow: hidden;
   background: rgba(255,255,255,0.06);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+.card-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5,5,5,0.85), rgba(5,5,5,0.25), rgba(5,5,5,0.05));
+  z-index: 2;
 }
 
 .card-cover img {
@@ -304,6 +324,13 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0.9;
+  transition: 0.4s ease;
+}
+
+.work-card:hover .card-cover img {
+  transform: scale(1.04);
+  opacity: 1;
 }
 
 .card-detail {
@@ -312,6 +339,8 @@ body {
   overflow: hidden;
   padding: 0 34px;
   transition: max-height 0.5s ease, opacity 0.35s ease, padding 0.35s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .work-card.open .card-detail {
@@ -365,8 +394,32 @@ body {
   }
 
   .card-summary {
-    grid-template-columns: 1fr;
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 24px;
+  }
+
+  .card-text {
+    width: 100%;
+  }
+
+  .card-text h2 {
+    font-size: 34px;
+  }
+
+  .card-cover {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 24px;
+    border-radius: 20px;
+    clip-path: none;
+  }
+
+  .card-cover::before {
+    background: linear-gradient(180deg, rgba(5,5,5,0.1), rgba(5,5,5,0.35));
   }
 
   .card-detail {
@@ -375,10 +428,6 @@ body {
 
   .work-card.open .card-detail {
     padding: 0 24px 24px;
-  }
-
-  .card-text h2 {
-    font-size: 34px;
   }
 }
 
