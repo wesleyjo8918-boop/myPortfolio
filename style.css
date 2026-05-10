@@ -256,4 +256,22 @@ body {
   .work-section h1 {
     letter-spacing: -2px;
   }
+
+  /* Contact section */
+
+#contact {
+  min-height: auto;
+  padding: 70px 6vw;
+  text-align: center;
+}
+
+#contact h2 {
+  text-align: center;
+}
+
+#contact p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 }
