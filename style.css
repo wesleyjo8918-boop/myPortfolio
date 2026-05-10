@@ -103,7 +103,7 @@ body {
 }
 
 .portfolio-section {
-  min-height: 45vh;
+  min-height: 20vh;
   padding: 80px 6vw;
   border-top: 1px solid rgba(255,255,255,0.12);
   background: #050505;
