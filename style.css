@@ -307,10 +307,10 @@ section#skills.portfolio-section {
   min-height: 45vh;
   padding: 70px 6vw;
   text-align: center;
+  padding-bottom: 104px;
 }
 #skills {
   text-align: right;
-  padding-bottom: 104px;
 }
 
 #skills h2 {
