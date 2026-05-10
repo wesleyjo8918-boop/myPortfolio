@@ -259,17 +259,18 @@ body {
 }
   /* Contact section */
 
-#contact {
+section#contact.portfolio-section {
   min-height: auto;
-  padding: 70px 6vw;
+  padding: 50px 6vw;
   text-align: center;
 }
 
-#contact h2 {
+section#contact.portfolio-section h2 {
   text-align: center;
 }
 
-#contact p {
+section#contact.portfolio-section p {
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
