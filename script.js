@@ -15,13 +15,13 @@ function showSection(sectionId) {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
+const selectedSectionId = urlParams.get("section");
 
-const selectedSection = urlParams.get("section");
-
-if (selectedSection) {
-  showSection(selectedSection);
+if (selectedSectionId) {
+  showSection(selectedSectionId);
 }
-const contactLink = document.querySelector('a[href="#contact"]');
+
+const contactLink = document.querySelector(".top-nav a[href='#contact']");
 
 if (contactLink) {
   contactLink.addEventListener("click", function(event) {
@@ -34,7 +34,7 @@ if (contactLink) {
         behavior: "smooth"
       });
 
-      history.replaceState(null, "", window.location.pathname);
+      window.history.replaceState(null, "", window.location.pathname);
     }
   });
 }
