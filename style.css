@@ -156,14 +156,20 @@ body {
 
 .portfolio-page {
   min-height: 100vh;
-  padding: 50px 6vw 120px;
+  padding: 36px 6vw 120px;
   background: #050505;
   color: #f5f5f5;
 }
 
+.portfolio-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
 .back-link {
   display: inline-block;
-  margin-bottom: 40px;
   color: #bdbdbd;
   text-decoration: none;
   font-size: 16px;
@@ -171,6 +177,27 @@ body {
 
 .back-link:hover {
   color: #ffffff;
+}
+
+.portfolio-right-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.portfolio-right-nav a {
+  color: #d0d0d0;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.portfolio-right-nav a:hover {
+  color: #ffffff;
+}
+
+.portfolio-right-nav span {
+  color: rgba(255,255,255,0.35);
 }
 
 .sub-menu {
@@ -246,7 +273,19 @@ body {
 
 @media (max-width: 850px) {
   .portfolio-page {
-    padding: 36px 6vw 90px;
+    padding: 30px 6vw 90px;
+  }
+
+  .portfolio-top-nav {
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+
+  .portfolio-right-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 13px;
   }
 
   .work-grid {
@@ -257,7 +296,8 @@ body {
     letter-spacing: -2px;
   }
 }
-  /* Contact section */
+
+/* Contact section */
 
 section#contact.portfolio-section {
   min-height: auto;
@@ -278,6 +318,7 @@ section#contact.portfolio-section p {
   margin-right: auto;
   text-align: center;
 }
+
 .contact-links {
   display: flex;
   justify-content: center;
@@ -300,7 +341,6 @@ section#contact.portfolio-section p {
 .contact-links span {
   color: rgba(255,255,255,0.35);
 }
-
 
 /* Skills section */
 
