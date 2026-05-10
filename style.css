@@ -277,7 +277,11 @@ section#contact.portfolio-section p {
 }
 
 /* Skills section */
-
+section#skills.portfolio-section {
+  min-height: 45vh;
+  padding: 70px 6vw;
+  text-align: center;
+}
 #skills {
   text-align: right;
 }
