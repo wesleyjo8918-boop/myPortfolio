@@ -275,3 +275,19 @@ body {
   text-align: center;
 }
 
+/* Skills section */
+
+#skills {
+  text-align: right;
+}
+
+#skills h2 {
+  text-align: right;
+}
+
+#skills p {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
