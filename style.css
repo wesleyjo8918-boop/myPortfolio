@@ -50,7 +50,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   background:
-    radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 30%),
+    radial-gradient(circle at top right, rgba(255,255,255,0.24), transparent 70%),
     linear-gradient(135deg, #050505 0%, #111111 55%, #1b1b1b 100%);
 }
 
