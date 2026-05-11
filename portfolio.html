@@ -125,15 +125,17 @@
             </div>
 
             <div class="detail-videos">
-              <video autoplay muted loop playsinline>
-                <source src="videos/artc251/artc251_a2_detail_video1.mp4" type="video/mp4">
+              <video class="lightbox-video" autoplay muted loop playsinline>
+                  <source src="videos/artc251/artc251_a2_detail_video1.mp4" type="video/mp4">
               </video>
 
-              <video autoplay muted loop playsinline>
-                <source src="videos/artc251/artc251_a2_detail_video2.mp4" type="video/mp4">
+              <video class="lightbox-video" autoplay muted loop playsinline>
+                  <source src="videos/artc251/artc251_a2_detail_video2.mp4" type="video/mp4">
               </video>
             </div>
 
+            
+            
             <button class="card-close-button" type="button">Close ↑</button>
           </div>
         </div>
@@ -551,6 +553,14 @@
     <button class="lightbox-zoom lightbox-zoom-out" type="button" aria-label="Zoom out">−</button>
     <button class="lightbox-zoom lightbox-zoom-in" type="button" aria-label="Zoom in">+</button>
     <img class="lightbox-content" src="" alt="Expanded portfolio work">
+  </div>
+
+  <div class="video-lightbox" id="video-lightbox" aria-hidden="true">
+  <button class="video-lightbox-close" type="button" aria-label="Close video">×</button>
+
+  <video class="video-lightbox-content" controls autoplay muted loop playsinline>
+    <source src="" type="video/mp4">
+  </video>
   </div>
 
   <script src="script.js"></script>
