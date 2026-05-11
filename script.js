@@ -14,6 +14,25 @@ function showSection(sectionId) {
   }
 }
 
+function toggleCard(card) {
+  card.classList.toggle("open");
+
+  const videos = card.querySelectorAll("video");
+
+  videos.forEach(function(video) {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    if (card.classList.contains("open")) {
+      video.play();
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 const selectedSectionId = urlParams.get("section");
 
