@@ -399,12 +399,14 @@ body {
 
 .detail-videos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  align-items: start;
 }
 
 .detail-videos video {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 18px;
@@ -488,10 +490,6 @@ body {
 
   .detail-gallery {
     grid-template-columns: 1fr;
-  }
-
-  .detail-videos video {
-    width: 100%;
   }
 
   .detail-meta {
