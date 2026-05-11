@@ -693,3 +693,76 @@ section#skills.portfolio-section p {
   margin-right: 0;
   text-align: right;
 }
+
+
+/* Video lightbox */
+
+.lightbox-video {
+  cursor: pointer;
+}
+
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 5vw;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px);
+}
+
+.video-lightbox.active {
+  display: flex;
+}
+
+.video-lightbox-content {
+  max-width: 92vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  border-radius: 18px;
+  background: #000000;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+}
+
+.video-lightbox-close {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  background: rgba(20,20,20,0.82);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+  transition: 0.25s ease;
+}
+
+.video-lightbox-close:hover {
+  border-color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.18);
+}
+
+@media (max-width: 850px) {
+  .video-lightbox {
+    padding: 76px 4vw;
+  }
+
+  .video-lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+    border-radius: 14px;
+  }
+
+  .video-lightbox-close {
+    top: 18px;
+    right: 18px;
+  }
+}
+
