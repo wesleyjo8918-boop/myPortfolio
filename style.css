@@ -382,9 +382,8 @@ body {
 }
 
 .detail-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  column-count: 3;
+  column-gap: 14px;
   margin-bottom: 28px;
 }
 
@@ -393,6 +392,8 @@ body {
   height: auto;
   object-fit: contain;
   display: block;
+  break-inside: avoid;
+  margin-bottom: 14px;
   border-radius: 16px;
   background: rgba(255,255,255,0.06);
 }
@@ -489,7 +490,7 @@ body {
   }
 
   .detail-gallery {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 
   .detail-meta {
