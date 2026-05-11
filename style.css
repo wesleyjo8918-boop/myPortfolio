@@ -556,6 +556,8 @@ section#skills.portfolio-section {
   padding-bottom: 122px;
   padding-left: 6vw;
   text-align: right;
+  background: #f5f5f5;
+  color: #050505;
 }
 
 section#skills.portfolio-section h2 {
