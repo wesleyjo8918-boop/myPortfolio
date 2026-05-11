@@ -104,6 +104,34 @@ const zoomOutButton = document.querySelector(".lightbox-zoom-out");
 const lightboxImages = document.querySelectorAll(".lightbox-image");
 
 let currentZoom = 1;
+let imageX = 0;
+let imageY = 0;
+let isDragging = false;
+let dragStartX = 0;
+let dragStartY = 0;
+let startImageX = 0;
+let startImageY = 0;
+let movedWhileDragging = false;
+
+function updateLightboxTransform() {
+  if (!lightboxImage) {
+    return;
+  }
+
+  lightboxImage.style.transform =
+    "translate(" + imageX + "px, " + imageY + "px) scale(" + currentZoom + ")";
+}
+
+function resetLightboxPosition() {
+  currentZoom = 1;
+  imageX = 0;
+  imageY = 0;
+  updateLightboxTransform();
+
+  if (lightboxImage) {
+    lightboxImage.style.cursor = "zoom-in";
+  }
+}
 
 function openLightbox(image) {
   if (!lightbox || !lightboxImage) {
@@ -111,6 +139,8 @@ function openLightbox(image) {
   }
 
   currentZoom = 1;
+  imageX = 0;
+  imageY = 0;
 
   lightboxImage.src = image.src;
   lightboxImage.alt = image.alt;
@@ -118,7 +148,8 @@ function openLightbox(image) {
   lightbox.classList.add("active");
   lightbox.setAttribute("aria-hidden", "false");
 
-  lightboxImage.style.transform = "scale(" + currentZoom + ")";
+  updateLightboxTransform();
+  lightboxImage.style.cursor = "zoom-in";
   document.body.style.overflow = "hidden";
 }
 
@@ -134,7 +165,10 @@ function closeLightbox() {
   lightboxImage.alt = "Expanded portfolio work";
 
   currentZoom = 1;
-  lightboxImage.style.transform = "scale(1)";
+  imageX = 0;
+  imageY = 0;
+  updateLightboxTransform();
+
   document.body.style.overflow = "";
 }
 
@@ -147,13 +181,43 @@ function zoomLightbox(amount) {
 
   if (currentZoom < 1) {
     currentZoom = 1;
+    imageX = 0;
+    imageY = 0;
   }
 
   if (currentZoom > 3) {
     currentZoom = 3;
   }
 
-  lightboxImage.style.transform = "scale(" + currentZoom + ")";
+  if (lightboxImage) {
+    if (currentZoom > 1) {
+      lightboxImage.style.cursor = "grab";
+    } else {
+      lightboxImage.style.cursor = "zoom-in";
+    }
+  }
+
+  updateLightboxTransform();
+}
+
+function toggleImageZoom() {
+  if (!lightbox || !lightbox.classList.contains("active")) {
+    return;
+  }
+
+  if (currentZoom === 1) {
+    currentZoom = 1.8;
+    imageX = 0;
+    imageY = 0;
+
+    if (lightboxImage) {
+      lightboxImage.style.cursor = "grab";
+    }
+  } else {
+    resetLightboxPosition();
+  }
+
+  updateLightboxTransform();
 }
 
 lightboxImages.forEach(function(image) {
@@ -205,6 +269,64 @@ if (lightbox) {
 if (lightboxImage) {
   lightboxImage.addEventListener("click", function(event) {
     event.stopPropagation();
+
+    if (movedWhileDragging) {
+      movedWhileDragging = false;
+      return;
+    }
+
+    toggleImageZoom();
+  });
+
+  lightboxImage.addEventListener("mousedown", function(event) {
+    if (currentZoom <= 1) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    isDragging = true;
+    movedWhileDragging = false;
+
+    dragStartX = event.clientX;
+    dragStartY = event.clientY;
+    startImageX = imageX;
+    startImageY = imageY;
+
+    lightboxImage.style.cursor = "grabbing";
+  });
+
+  window.addEventListener("mousemove", function(event) {
+    if (!isDragging) {
+      return;
+    }
+
+    const moveX = event.clientX - dragStartX;
+    const moveY = event.clientY - dragStartY;
+
+    if (Math.abs(moveX) > 3 || Math.abs(moveY) > 3) {
+      movedWhileDragging = true;
+    }
+
+    imageX = startImageX + moveX;
+    imageY = startImageY + moveY;
+
+    updateLightboxTransform();
+  });
+
+  window.addEventListener("mouseup", function() {
+    if (!isDragging) {
+      return;
+    }
+
+    isDragging = false;
+
+    if (currentZoom > 1) {
+      lightboxImage.style.cursor = "grab";
+    } else {
+      lightboxImage.style.cursor = "zoom-in";
+    }
   });
 }
 
