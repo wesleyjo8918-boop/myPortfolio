@@ -261,7 +261,7 @@ body {
   border-radius: 26px;
   background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
   overflow: hidden;
-  cursor: pointer;
+  cursor: default;
   transition: 0.35s ease;
 }
 
@@ -277,6 +277,7 @@ body {
   align-items: center;
   padding: 34px;
   z-index: 2;
+  cursor: pointer;
 }
 
 .card-text {
@@ -341,10 +342,11 @@ body {
   transition: max-height 0.5s ease, opacity 0.35s ease, padding 0.35s ease;
   position: relative;
   z-index: 3;
+  cursor: default;
 }
 
 .work-card.open .card-detail {
-  max-height: 5000px;
+  max-height: 12000px;
   opacity: 1;
   padding: 0 34px 34px;
 }
@@ -398,11 +400,16 @@ body {
   background: rgba(255,255,255,0.06);
 }
 
+.lightbox-image {
+  cursor: zoom-in;
+}
+
 .detail-videos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   align-items: start;
+  margin-bottom: 28px;
 }
 
 .detail-videos video {
@@ -424,6 +431,94 @@ body {
 .detail-media img {
   width: 100%;
   display: block;
+}
+
+/* Card close button */
+
+.card-close-button {
+  display: block;
+  margin: 34px auto 4px;
+  padding: 9px 18px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: #d0d0d0;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.card-close-button:hover {
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+
+/* Image lightbox */
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 5vw;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px);
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 92vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+  transform-origin: center center;
+  transition: transform 0.2s ease;
+  cursor: zoom-in;
+}
+
+.lightbox-close,
+.lightbox-zoom {
+  position: fixed;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  background: rgba(20,20,20,0.82);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+  transition: 0.25s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-zoom:hover {
+  border-color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.18);
+}
+
+.lightbox-close {
+  top: 28px;
+  right: 28px;
+}
+
+.lightbox-zoom-in {
+  right: 28px;
+  bottom: 86px;
+}
+
+.lightbox-zoom-out {
+  right: 28px;
+  bottom: 34px;
 }
 
 @media (max-width: 850px) {
@@ -485,7 +580,7 @@ body {
   }
 
   .work-card.open .card-detail {
-    max-height: 5000px;
+    max-height: 12000px;
     padding: 0 24px 24px;
   }
 
@@ -499,6 +594,35 @@ body {
 
   .detail-meta span {
     font-size: 13px;
+  }
+
+  .detail-videos {
+    grid-template-columns: 1fr;
+  }
+
+  .image-lightbox {
+    padding: 76px 4vw;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+    border-radius: 14px;
+  }
+
+  .lightbox-close {
+    top: 18px;
+    right: 18px;
+  }
+
+  .lightbox-zoom-in {
+    right: 18px;
+    bottom: 76px;
+  }
+
+  .lightbox-zoom-out {
+    right: 18px;
+    bottom: 24px;
   }
 }
 
